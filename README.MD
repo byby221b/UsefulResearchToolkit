@@ -7,17 +7,17 @@
 
 The **Useful Research Toolkit** offers some frequently used scripts in my research, including experiments as well as paper writing (by Latex).
 
-## Git
+## <img src="https://img.icons8.com/color/48/null/git.png" width="30px" />Git
 
 Some useful gitignore files (for python and latex). It is quite important to manage your project by git, when there are more collaborators. Don't upload strange files that will make your collaborators cranky to the remote branch.
 
-## Python
+## <img src="https://img.icons8.com/color/48/null/python--v1.png" width="30px" />Python
 
 Some useful python tools.
 
 - **[gpu_tools](./python/gpu_tools)** can automatically finds free GPUs for servers with multiple GPUs. See [here](./python/gpu_tools/README.md) for details.
 
-## Shell
+## <img src="https://img.icons8.com/color/48/null/console.png" width="30px" />Shell
 
 Some useful shell scripts.
 
@@ -32,7 +32,7 @@ Some useful shell scripts.
     
 - **[parallel](./shell/parallel)** offers scripts for launching multiple experiments at once.
 
-## Tex
+## <img src="https://img.icons8.com/color/48/null/latex.png" width="30px"/>Tex
 
 Some useful latex templates.
 
