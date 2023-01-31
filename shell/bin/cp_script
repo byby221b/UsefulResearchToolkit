@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+src=$1
+dst=$2
+
+mkdir -p $dst
+cp $src/config.yaml $dst
+cp $src/*.sh $dst
+cp $src/*.py $dst
+cp -d $src/pretrain_model.bin $dst
+
+echo Done

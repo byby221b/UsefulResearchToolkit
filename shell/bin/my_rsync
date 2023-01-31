@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+src=171
+path=`pwd`/tmp
+root=`pwd`
+
+while [[ $# -gt 0 ]]
+do
+    key="$1"
+    case $key in
+        -s|--src)
+            src=$2
+            shift 2
+            ;;
+        -p|--path)
+            path=$2
+            shift 2
+            ;;
+        *)
+            echo invalid arg [$1]
+            exit 1
+            ;;
+    esac
+done
+
+dir_name=`dirname $path`
+mkdir -p ${dir_name}
+cd ${dir_name}
+rsync -avpP $src:$path .
+cd $root

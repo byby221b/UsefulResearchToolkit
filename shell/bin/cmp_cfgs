@@ -1,0 +1,25 @@
+#!/home/baiy/anaconda3/envs/torch/bin/python
+
+import yaml
+import argparse
+from deepdiff import DeepDiff
+from pprint import pprint
+
+parser = argparse.ArgumentParser()
+parser.add_argument("cfgs1", type=str)
+parser.add_argument("cfgs2", type=str)
+args = parser.parse_args()
+
+
+def read_yaml(path):
+    with open(path) as f:
+        cfg = yaml.load(f, Loader=yaml.Loader)
+
+    return cfg
+
+
+
+cfg1 = read_yaml(args.cfgs1)
+cfg2 = read_yaml(args.cfgs2)
+
+pprint(DeepDiff(cfg1, cfg2), indent=4)

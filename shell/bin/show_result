@@ -1,0 +1,56 @@
+#!/home/baiy/anaconda3/envs/torch/bin/python
+import argparse
+from glob import glob
+from prettytable import PrettyTable
+import json as js
+from os.path import dirname, basename, join
+from collections import defaultdict
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-m", "--measure", 
+                    default='error', 
+                    choices=['error', 'loss_e', 'loss_u'],
+                    type=str)
+parser.add_argument("-e", "--epoch", 
+                    default=-1, 
+                    type=int)
+args = parser.parse_args()
+
+key_map = {
+    'error': "Error/1-Target Avg Error",
+    #'error': 'Underlying/3-Avg Error',
+    'loss_e': 'Estimate/2-Cumulative Loss',
+    'loss_u': 'Underlying/2-Cumulative Loss',
+}
+
+results=glob('./**/result*.json', recursive=True)
+
+results_menu = defaultdict(list)
+for path in results:
+    results_menu[dirname(path)].append(basename(path))
+
+results = []
+for k, v in results_menu.items():
+    if 'result.json' in v:
+        results.append(join(k, 'result.json'))
+    else:
+        v = sorted(v)
+        results.append(join(k, v[-1]))
+
+
+table=PrettyTable()
+table.field_names=['EXPR', 'AVG ERROR']
+table.align = 'l'
+
+items = []
+for path in results:
+    with open(path) as f:
+        value = js.load(f)[args.epoch][key_map[args.measure]]
+    items.append([dirname(dirname(path)), value])
+
+items.sort(key=lambda x: x[1])
+
+for k, v in items:
+    table.add_row([k, '{:.6f}'.format(v)])
+
+print(table)
