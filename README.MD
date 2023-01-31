@@ -9,7 +9,7 @@ The **Useful Research Toolkit** offers some frequently used scripts in my resear
 
 ## <img src="https://img.icons8.com/color/48/null/git.png" width="30px" />Git
 
-Some useful gitignore files (for python and latex). It is quite important to manage your project by git, when there are more collaborators. Don't upload strange files that will make your collaborators cranky to the remote branch.
+Some useful gitignore files (for python and latex). It is quite important to manage your project by git, especially when there are more collaborators. Don't upload strange files that will make your collaborators cranky to the remote branch.
 
 ## <img src="https://img.icons8.com/color/48/null/python--v1.png" width="30px" />Python
 
