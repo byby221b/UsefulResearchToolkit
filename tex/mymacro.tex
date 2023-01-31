@@ -1,0 +1,246 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{lipsum}
+\usepackage{bm,bbm}
+\usepackage{bbding}
+
+\usepackage{paralist}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{subfloat}
+\usepackage{float}
+\usepackage{algorithm,algorithmic}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage[shortlabels]{enumitem}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+
+% ======================================users===================================
+% ------------------------notation---------------------------------
+\def \E {\mathbb{E}}
+\def \x {\mathbf{x}}
+\def \y {\mathbf{y}}
+\def \g {\mathbf{g}}
+\def \L {\mathcal{L}}
+\def \D {\mathcal{D}}
+\def \z {\mathbf{z}}
+\def \u {\mathbf{u}}
+\def \H {\mathcal{H}}
+\def \w {\mathbf{w}}
+\def \O {\mathcal{O}}
+\def \R {\mathbb{R}}
+\def \indicator {\mathbbm{1}}
+\def \regret {\mbox{regret}}
+\def \SReg {\mathop{\bm{\mathrm{Reg}}}\nolimits_{T}^{\bm{\mathsf{s}}}}
+\def \DReg {\mathop{\bm{\mathrm{Reg}}}\nolimits_{T}^{\bm{\mathsf{d}}}}
+\def \Uh {\widehat{U}}
+\def \Y {\mathcal{Y}}
+\def \P {\mathcal{P}}
+\def \F {\mathcal{F}}
+\def \Gc {\mathcal{G}}
+\def \G {G}
+\def \Q {\mathcal{Q}}
+\def \W {\mathcal{W}}
+\def \N {\mathcal{N}}
+\def \A {\mathcal{A}}
+\def \q {\mathbf{q}}
+\def \v {\mathbf{v}}
+\def \M {\mathcal{M}}
+\def \c {\mathbf{c}}
+\def \ph {\widehat{p}}
+\def \d {\mathbf{d}}
+\def \p {\mathbf{p}}
+\def \q {\mathbf{q}}
+\def \ps {\mathsf{p}}
+\def \qs {\mathsf{q}}
+\def \db {\bar{\d}}
+\def \dbb {\bar{d}}
+\def \I {\mathcal{I}}
+\def \xt {\widetilde{\x}}
+\def \f {\mathbf{f}}
+\def \a {\mathbf{a}}
+\def \b {\mathbf{b}}
+\def \ft {\widetilde{\f}}
+\def \bt {\widetilde{\b}}
+\def \gt {\widetilde{g}}
+\def \h {\mathbf{h}}
+\def \B {\mathbf{B}}
+\def \bts {\widetilde{b}}
+\def \fts {\widetilde{f}}
+\def \Gh {\widehat{G}}
+\def \bh {\widehat{b}}
+\def \fh {\widehat{f}}
+\def \ub {\bar{\u}}
+\def \vb {\bar{\v}}
+\def \zt {\widetilde{\z}}
+\def \zts {\widetilde{z}}
+\def \s {\mathbf{s}}
+\def \gh {\widehat{\g}}
+\def \vh {\widehat{\v}}
+\def \Rh {\hat{R}}
+\def \Pb {\overline{P}}
+\def \rhoh {\widehat{\rho}}
+\def \hh {\widehat{\h}}
+\def \C {\mathcal{C}}
+\def \V {\mathcal{V}}
+\def \t {\mathbf{t}}
+\def \m {\mathbf{m}}
+\def \xh {\widehat{\x}}
+\def \xb {\bar{\x}}
+\def \Ut {\widetilde{U}}
+\def \wt {\widetilde{\w}}
+\def \Th {\widehat{T}}
+\def \Ot {\tilde{\mathcal{O}}}
+\def \nb {\widehat{\nabla}}
+\def \K {\mathcal{K}}
+\def \T {\mathcal{T}}
+\def \F {\mathcal{F}}
+\def \ft{\widetilde{f}}
+\def \xt {\widetilde{x}}
+\def \Rt {\mathcal{R}}
+\def \V {V}
+\def \Vc {\mathcal{V}}
+\def \Vt {\tilde{V}}
+\def \Rb {\bar{\Rt}}
+\def \wb {\bar{\w}}
+\def \fh {\widehat{f}}
+\def \wh {\widehat{\w}}
+\def \lh {\widehat{\lambda}}
+\def \e {\mathbf{e}}
+\def \B {\mathcal{B}}
+\def \T {\mathrm{T}}
+\def \X {\mathcal{X}}
+\def \xxs {\x_s\x_s^\top}
+\def \SN {\mathcal{S}}
+\def \thetah {\hat{\theta}}
+\def \sumT {\sum_{t=1}^T}
+\def \sumt {\sum_{s=1}^t}
+\def \ellb {\bm{\ell}}
+\def \sumtm {\sum_{s=1}^{t-1}}
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}}      %Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{ \textbf{Output:}}     %UseOutput in the format of Algorithm
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+
+\newcommand\given[1][]{\:#1\vert\:}
+\newcommand\givenn[1][]{\:#1\middle\vert\:}
+
+
+\usepackage{mathtools}
+\usepackage{appendix}
+\let\oldnorm\norm   % <-- Store original \norm as \oldnorm
+\let\norm\undefined % <-- "Undefine" \norm
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\newcommand\inner[2]{\langle #1, #2 \rangle}
+%--------------------------------environemts----------------------------
+\newtheorem{myThm}{Theorem}
+\newtheorem{myFact}{Fact}
+\newtheorem{myClaim}{Claim}
+\newtheorem{myLemma}{Lemma}
+\newtheorem{myObservation}{Observation}
+\newtheorem{myProp}{Proposition}
+\newtheorem{myProperty}{Property}
+\theoremstyle{definition}
+\newtheorem{myAssum}{Assumption}
+\newtheorem{myConj}{Conjecture}
+\newtheorem{myCor}{Corollary}
+\newtheorem{myDef}{Definition}
+\newtheorem{myNote}{Note}
+
+\newtheorem{myProblem}{Problem}
+\newtheorem{myRemark}{Remark}
+\newtheorem{myExample}{Example}
+\newtheorem*{myProofSketch}{Proof Sketch}
+
+
+%-------------------------------others------------------------------------
+% add comments
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\def \A {\mathcal{A}}
+\def \Bb {\mathbb{B}}
+\def \E {\mathbb{E}}
+\def \D {\mathcal{D}}
+\def \J {\mathcal{J}}
+\def \H {\mathcal{H}}
+\def \I {\mathbb{I}}
+\def \R {\mathbb{R}}
+\def \S {\mathcal{S}}
+\def \W {\mathcal{W}}
+\def \X {\mathcal{X}}
+\def \Y {\mathcal{Y}}
+
+\def \x {\mathbf{x}}
+\def \y {\mathbf{y}}
+\def \xsf{\textsf{x}}
+\def \ysf {\textsf{y}}
+\def \Cf {C_{f_0}}
+\def \Chf {\hat{C}_{f_0}}
+\def \Jf {J_{f_0}}
+\def \Jhf {\hat{J}_{f_0}}
+\def \Wf {W_{f_0}}
+\def \Whf {\hat{W}_{f_0}}
+\def \Rhb {\hat{\bm{R}}}
+\def \epsilon {\varepsilon}
+
+
+\newcommand \Div[2]{\D_{\Rcal}(#1, #2)}
+\def \Rcal {\psi}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\definecolor{DSgray}{cmyk}{0,1,0,0}
+\newcommand{\Authornote}[2]{{\small\textcolor{DSgray}{\sf$<<<${  #1: #2
+}$>>>$}}}
+\newcommand{\Authornoteblue}[2]{{\small\textcolor{blue}{\sf$<<<${  #1: #2
+}$>>>$}}}
+\newcommand{\Authormarginnote}[2]{\marginpar{\parbox{2cm}{\raggedright\tiny
+\textcolor{DSgray}{#1: #2}}}}
+
+\newcommand{\pnote}[1]{{\Authornote{Peng}{#1}}}
+\newcommand{\yjnote}[1]{{\Authornote{Yujie}{#1}}}
+\newcommand{\yongnote}[1]{{\Authornote{Yong}{#1}}}
+\newcommand{\suginote}[1]{{\Authornoteblue{Sugiyama}{#1}}}
+\newcommand{\yjnoteblue}[1]{{\Authornoteblue{Yujie}{#1}}}
+\newcommand{\note}[1]{{\color{red}{#1}}}
+
+\usepackage{prettyref}
+\newcommand{\pref}[1]{\prettyref{#1}}
+\newcommand{\pfref}[1]{Proof of \prettyref{#1}}
+\newcommand{\savehyperref}[2]{\texorpdfstring{\hyperref[#1]{#2}}{#2}}
+\newrefformat{eq}{\savehyperref{#1}{Eq.~(\ref*{#1})}}
+\newrefformat{eqn}{\savehyperref{#1}{Equation~\ref*{#1}}}
+\newrefformat{lem}{\savehyperref{#1}{Lemma~\ref*{#1}}}
+\newrefformat{lemma}{\savehyperref{#1}{Lemma~\ref*{#1}}}
+\newrefformat{def}{\savehyperref{#1}{Definition~\ref*{#1}}}
+\newrefformat{line}{\savehyperref{#1}{Line~\ref*{#1}}}
+\newrefformat{thm}{\savehyperref{#1}{Theorem~\ref*{#1}}}
+\newrefformat{corr}{\savehyperref{#1}{Corollary~\ref*{#1}}}
+\newrefformat{cor}{\savehyperref{#1}{Corollary~\ref*{#1}}}
+\newrefformat{sec}{\savehyperref{#1}{Section~\ref*{#1}}}
+\newrefformat{app}{\savehyperref{#1}{Appendix~\ref*{#1}}}
+\newrefformat{appendix}{\savehyperref{#1}{Appendix~\ref*{#1}}}
+\newrefformat{assum}{\savehyperref{#1}{Assumption~\ref*{#1}}}
+\newrefformat{ex}{\savehyperref{#1}{Example~\ref*{#1}}}
+\newrefformat{fig}{\savehyperref{#1}{Figure~\ref*{#1}}}
+\newrefformat{alg}{\savehyperref{#1}{Algorithm~\ref*{#1}}}
+\newrefformat{rem}{\savehyperref{#1}{Remark~\ref*{#1}}}
+\newrefformat{conj}{\savehyperref{#1}{Conjecture~\ref*{#1}}}
+\newrefformat{prop}{\savehyperref{#1}{Proposition~\ref*{#1}}}
+\newrefformat{proto}{\savehyperref{#1}{Protocol~\ref*{#1}}}
+\newrefformat{prob}{\savehyperref{#1}{Problem~\ref*{#1}}}
+\newrefformat{claim}{\savehyperref{#1}{Claim~\ref*{#1}}}
+\newrefformat{que}{\savehyperref{#1}{Question~\ref*{#1}}}
+\newrefformat{op}{\savehyperref{#1}{Open Problem~\ref*{#1}}}
+\newrefformat{fn}{\savehyperref{#1}{Footnote~\ref*{#1}}}
+\allowdisplaybreaks[3]
