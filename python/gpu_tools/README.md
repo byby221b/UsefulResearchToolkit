@@ -29,7 +29,7 @@ Parameters:
 
 - --req: The maximum amount of memory required for the task (in MB), and the tool will look for GPUs that currently have more memory remaining than the required memory for the task.
 - --sleep: Sleep parameter (in seconds), to prevent multiple tasks from occupying the same free GPU.
-- exclude: GPU numbers to be ignored for reserving GPUs for other tasks.
+- --exclude: GPU numbers to be ignored for reserving GPUs for other tasks.
 
 ## Beyond
 
