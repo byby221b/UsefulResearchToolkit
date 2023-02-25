@@ -14,7 +14,7 @@ Some useful gitignore files (for python and latex). It is quite important to man
 ## <img src="https://img.icons8.com/color/48/null/python--v1.png" width="30px" />Python
 
 Some useful python tools.
-
+- **[progress bar](./python/progress_bar.py)** is a tool to visualize the progress of the run.
 - **[gpu_tools](./python/gpu_tools)** can automatically finds free GPUs for servers with multiple GPUs. See [here](./python/gpu_tools/README.md) for details.
 
 ## <img src="https://img.icons8.com/color/48/null/console.png" width="30px" />Shell
